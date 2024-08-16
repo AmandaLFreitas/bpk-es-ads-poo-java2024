@@ -1,0 +1,459 @@
+public class EX1 {
+    public class HelloWorld {
+        public static void main(String[] args) {
+            System.out.println("Hello, World!");
+        }
+    }
+}
+
+public class EX2 {
+    public static void main (String[]args) {
+        int inteiro = 5;
+        double real = 5.5;
+        char caracter = 'A';
+        boolean x = true;
+
+        System.out.printf("Inteiro: %d\n", inteiro);
+        System.out.printf("Double: %f\n", real);
+        System.out.printf("Char: %s\n", caracter);
+        System.out.printf("Boolean: %b\n", x);
+
+    }
+}
+
+import java.util.Scanner;
+
+public class EX3 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.printf("Digite o número 1: \n");
+        double numero1 = scanner.nextDouble();
+
+        System.out.printf("Digite o número 2: \n");
+        double numero2 = scanner.nextDouble();
+
+        double soma = numero1 + numero2;
+        double subtracao = numero1 - numero2;
+        double multiplicacao = numero1 * numero2;
+        double divisao = 0;
+
+        if (numero2 != 0) {
+            divisao = numero1 / numero2;
+        } else {
+            System.out.printf("Divisão: Não é possível dividir por zero.\n");
+        }
+
+        System.out.printf("Soma: %.2f\n", soma);
+        System.out.printf("Subtração: %.2f\n", subtracao);
+        System.out.printf("Multiplicação: %.2f\n", multiplicacao);
+        if (numero2 != 0) {
+            System.out.printf("Divisão: %.2f\n", divisao);
+        }
+
+        scanner.close();
+    }
+}
+
+import java.util.Scanner;
+
+public class EX4 {
+    public static void main (String[]args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.printf("Digite um número inteiro: \n");
+        int numero = scanner.nextInt();
+
+        if(numero % 2 == 0){
+            System.out.printf("É um número par.\n");
+        } else {
+            System.out.printf("É um número ímpar.\n");
+        }
+
+        scanner.close();
+    }
+}
+
+public class EX5 {
+    public static void main(String[] args) {
+        for(int i = 1; i<11; i++){
+            System.out.printf("%d\n", i);
+        }
+    }
+}
+
+public class EX6 {
+    public static void main(String[] args) {
+        int numeros[] = {5, 10, 15, 20, 25};
+
+        for(int i = 0; i < numeros.length; i++){
+            System.out.printf("Válor da Array %d: %d\n", i, numeros[i]);
+        }
+    }
+}
+
+public class EX7 {
+    public static int soma (int a, int b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        int resultado = soma(10, 20);
+
+        System.out.printf("Resultado de 10 e 20: %d", resultado);
+    }
+}
+
+import java.util.Scanner;
+
+public class EX8 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.printf("Digite seu nome: \n");
+        String nome = scanner.nextLine();
+
+        System.out.printf("Digite sua idade: \n");
+        int idade = scanner.nextInt();
+
+        System.out.printf("Nome: %s\nIdade: %d", nome, idade);
+    }
+}
+
+import java.util.Scanner;
+
+public class EX9 {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.printf("Bem vindo à calculadora\nDigite:\n-1 Para Soma\n-2 Para Subtração\n-3 Para Divisão\n-4 Para Multiplicação\n");
+        int resposta = scanner.nextInt();
+
+        System.out.printf("Digite o primeiro número: \n");
+        double numero1 = scanner.nextDouble();
+
+        System.out.printf("Digite o segundo número: \n");
+        double numero2 = scanner.nextDouble();
+
+        double resultado;
+
+        switch (resposta){
+            case 1:
+                resultado = numero1 + numero2;
+                System.out.printf("Resultado: %.2f\n", resultado);
+                break;
+            case 2:
+                resultado = numero1 - numero2;
+                System.out.printf("Resultado: %.2f\n", resultado);
+                break;
+            case 3:
+                resultado = numero1 / numero2;
+                System.out.printf("Resultado: %.2f\n", resultado);
+                break;
+            case 4:
+                resultado = numero1 * numero2;
+                System.out.printf("Resultado: %.2f\n", resultado);
+                break;
+        }
+
+        scanner.close();
+    }
+}
+
+import java.util.Scanner;
+
+public class EX10 {
+    public static boolean primo(int numero) {
+        if (numero <= 1) {
+            return false;
+        }
+        for (int i = 2; i < numero; i++) {
+            if (numero % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.printf("Digite um número para verificar se é primo: \n");
+        int numero = scanner.nextInt();
+
+        if (primo(numero)) {
+            System.out.printf("%d é primo\n", numero);
+        } else {
+            System.out.printf("%d não é primo\n", numero);
+        }
+
+        scanner.close();
+    }
+}
+
+import java.util.Scanner;
+
+public class EX11 {
+    public static boolean ehPalindromo(String palavra) {
+        // Converter a palavra para minúsculas
+        palavra = palavra.toLowerCase();
+
+        palavra = palavra.replaceAll("[^a-zA-Z0-9]", "");
+
+        int inicio = 0;
+        int fim = palavra.length() - 1;
+
+        while (inicio < fim) {
+            if (palavra.charAt(inicio) != palavra.charAt(fim)) {
+                return false;
+            }
+            inicio++;
+            fim--;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.printf("Digite uma palavra para verificar se é um palíndromo: \n");
+        String palavra = scanner.nextLine();
+
+        if (ehPalindromo(palavra)) {
+            System.out.printf("\"%s\" é um palíndromo.\n", palavra);
+        } else {
+            System.out.printf("\"%s\" não é um palíndromo.\n", palavra);
+        }
+
+        scanner.close();
+    }
+}
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class EX12 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int[] numeros = new int[5];
+
+        System.out.printf("Digite 5 números inteiros:\n");
+        for (int i = 0; i < 5; i++) {
+            System.out.printf("Número %d: ", (i + 1));
+            numeros[i] = scanner.nextInt();
+        }
+
+        scanner.close();
+
+        Arrays.sort(numeros);
+
+        System.out.printf("Números em ordem crescente:\n");
+        for (int numero : numeros) {
+            System.out.printf("%d\n", numero);
+        }
+    }
+}
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class EX13 {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        int numeroAleatorio = random.nextInt(100) + 1;
+        int tentativa;
+        int contagemTentativas = 0;
+
+        System.out.printf("Bem-vindo ao jogo de adivinhação!\n");
+        System.out.printf("Tente adivinhar o número entre 1 e 100.\n");
+
+        do {
+            System.out.printf("Digite seu palpite: ");
+
+            while (!scanner.hasNextInt()) {
+                System.out.printf("Por favor, insira um número inteiro válido.\n");
+                scanner.next(); // Limpa a entrada inválida
+                System.out.printf("Digite seu palpite: ");
+            }
+
+            tentativa = scanner.nextInt();
+
+            if (tentativa < 1 || tentativa > 100) {
+                System.out.printf("O palpite deve estar entre 1 e 100. Tente novamente.\n");
+                continue; // Pular o restante do loop e pedir um novo palpite
+            }
+
+            contagemTentativas++;
+
+            if (tentativa < numeroAleatorio) {
+                System.out.printf("Muito baixo!\n");
+            } else if (tentativa > numeroAleatorio) {
+                System.out.printf("Muito alto!\n");
+            } else {
+                System.out.printf("Parabéns! Você acertou.\nTentativas: %d\n", contagemTentativas);
+            }
+        } while (tentativa != numeroAleatorio);
+
+        scanner.close();
+    }
+}
+
+import java.util.Scanner;
+
+public class EX14 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.printf("Bem-vindo à calculadora\nDigite:\n1 Para Soma\n2 Para Subtração\n3 Para Divisão\n4 Para Multiplicação\n");
+        int resposta = scanner.nextInt();
+
+        if (resposta < 1 || resposta > 4) {
+            System.out.printf("Opção inválida. Por favor, escolha um número entre 1 e 4.\n");
+            scanner.close();
+            return;
+        }
+
+        System.out.printf("Digite o primeiro número: \n");
+        double numero1 = scanner.nextDouble();
+
+        System.out.printf("Digite o segundo número: \n");
+        double numero2 = scanner.nextDouble();
+
+        double resultado;
+
+        switch (resposta) {
+            case 1:
+                resultado = numero1 + numero2;
+                System.out.printf("Resultado: %.2f\n", resultado);
+                break;
+            case 2:
+                resultado = numero1 - numero2;
+                System.out.printf("Resultado: %.2f\n", resultado);
+                break;
+            case 3:
+                if (numero2 == 0) {
+                    System.out.printf("Erro: Divisão por zero não é permitida.\n");
+                } else {
+                    resultado = numero1 / numero2;
+                    System.out.printf("Resultado: %.2f\n", resultado);
+                }
+                break;
+            case 4:
+                resultado = numero1 * numero2;
+                System.out.printf("Resultado: %.2f\n", resultado);
+                break;
+        }
+
+        scanner.close();
+    }
+}
+
+import java.util.Scanner;
+
+public class EX15 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite um número inteiro positivo: ");
+
+        while (!scanner.hasNextInt()) {
+            System.out.println("Entrada inválida. Por favor, digite um número inteiro positivo.");
+            scanner.next(); // Limpa a entrada inválida
+            System.out.print("Digite um número inteiro positivo: ");
+        }
+
+        int numero = scanner.nextInt();
+
+        if (numero < 0) {
+            System.out.println("Número negativo não é permitido. Por favor, digite um número positivo.");
+        } else {
+            long fatorialIterativo = calcularFatorialIterativo(numero);
+            System.out.printf("Fatorial iterativo de %d: %d\n", numero, fatorialIterativo);
+
+            long fatorialRecursivo = calcularFatorialRecursivo(numero);
+            System.out.printf("Fatorial recursivo de %d: %d\n", numero, fatorialRecursivo);
+        }
+
+        scanner.close();
+    }
+
+    public static long calcularFatorialIterativo(int n) {
+        long fatorial = 1;
+        for (int i = 1; i <= n; i++) {
+            fatorial *= i;
+        }
+        return fatorial;
+    }
+
+    public static long calcularFatorialRecursivo(int n) {
+        if (n == 0 || n == 1) {
+            return 1;
+        } else {
+            return n * calcularFatorialRecursivo(n - 1);
+        }
+    }
+}
+
+import java.util.Scanner;
+
+public class EX16 {
+    public static double celsiusParaFahrenheit(double celsius) {
+        return (celsius * 9/5) + 32;
+    }
+
+    public static double fahrenheitParaCelsius(double fahrenheit) {
+        return (fahrenheit - 32) * 5/9;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.printf("Digite 1 para converter Celsius para Fahrenheit e 2 para converter Fahrenheit para Celsius: ");
+
+        while (!scanner.hasNextInt()) {
+            System.out.printf("Entrada inválida. Por favor, digite 1 ou 2.\n");
+            scanner.next();
+            System.out.printf("Digite 1 para converter Celsius para Fahrenheit e 2 para converter Fahrenheit para Celsius: ");
+        }
+
+        int resposta = scanner.nextInt();
+
+        switch(resposta) {
+            case 1:
+                System.out.printf("Digite a temperatura em Celsius: ");
+
+                while (!scanner.hasNextDouble()) {
+                    System.out.printf("Entrada inválida. Por favor, digite um número válido.\n");
+                    scanner.next();
+                    System.out.printf("Digite a temperatura em Celsius: ");
+                }
+
+                double celsius = scanner.nextDouble();
+                System.out.printf("Temperatura em Fahrenheit: %.2f\n", celsiusParaFahrenheit(celsius));
+                break;
+            case 2:
+                System.out.printf("Digite a temperatura em Fahrenheit: ");
+
+                while (!scanner.hasNextDouble()) {
+                    System.out.printf("Entrada inválida. Por favor, digite um número válido.\n");
+                    scanner.next(); // Limpa a entrada inválida
+                    System.out.printf("Digite a temperatura em Fahrenheit: ");
+                }
+
+                double fahrenheit = scanner.nextDouble();
+                System.out.printf("Temperatura em Celsius: %.2f\n", fahrenheitParaCelsius(fahrenheit));
+                break;
+            default:
+                System.out.printf("Opção inválida. Por favor, escolha 1 ou 2.\n");
+                break;
+        }
+
+        scanner.close();
+    }
+}
+
